@@ -1,0 +1,15 @@
+C:\Users\icimi\Desktop\CENG307_191180033_HW1\bin\Debug\net6.0\CENG307_191180033_HW1.exe
+C:\Users\icimi\Desktop\CENG307_191180033_HW1\bin\Debug\net6.0\CENG307_191180033_HW1.deps.json
+C:\Users\icimi\Desktop\CENG307_191180033_HW1\bin\Debug\net6.0\CENG307_191180033_HW1.runtimeconfig.json
+C:\Users\icimi\Desktop\CENG307_191180033_HW1\bin\Debug\net6.0\CENG307_191180033_HW1.dll
+C:\Users\icimi\Desktop\CENG307_191180033_HW1\bin\Debug\net6.0\CENG307_191180033_HW1.pdb
+C:\Users\icimi\Desktop\CENG307_191180033_HW1\obj\Debug\net6.0\CENG307_191180033_HW1.csproj.AssemblyReference.cache
+C:\Users\icimi\Desktop\CENG307_191180033_HW1\obj\Debug\net6.0\CENG307_191180033_HW1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\icimi\Desktop\CENG307_191180033_HW1\obj\Debug\net6.0\CENG307_191180033_HW1.AssemblyInfoInputs.cache
+C:\Users\icimi\Desktop\CENG307_191180033_HW1\obj\Debug\net6.0\CENG307_191180033_HW1.AssemblyInfo.cs
+C:\Users\icimi\Desktop\CENG307_191180033_HW1\obj\Debug\net6.0\CENG307_191180033_HW1.csproj.CoreCompileInputs.cache
+C:\Users\icimi\Desktop\CENG307_191180033_HW1\obj\Debug\net6.0\CENG307_191180033_HW1.dll
+C:\Users\icimi\Desktop\CENG307_191180033_HW1\obj\Debug\net6.0\refint\CENG307_191180033_HW1.dll
+C:\Users\icimi\Desktop\CENG307_191180033_HW1\obj\Debug\net6.0\CENG307_191180033_HW1.pdb
+C:\Users\icimi\Desktop\CENG307_191180033_HW1\obj\Debug\net6.0\CENG307_191180033_HW1.genruntimeconfig.cache
+C:\Users\icimi\Desktop\CENG307_191180033_HW1\obj\Debug\net6.0\ref\CENG307_191180033_HW1.dll
