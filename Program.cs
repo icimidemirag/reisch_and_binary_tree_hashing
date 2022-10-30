@@ -356,29 +356,53 @@ namespace Hashing
             REISCH reisch = new REISCH(rowCount);
             BINARY binary = new BINARY(rowCount);
 
-            reisch.insert(72);
-            reisch.insert(19);
-            reisch.insert(63);
-            reisch.insert(29);
-            reisch.insert(95);
-            reisch.insert(14);
-            reisch.insert(50);
-            reisch.insert(86);
-            reisch.insert(12);
-            reisch.insert(30);
+            // reisch.insert(72);
+            // reisch.insert(19);
+            // reisch.insert(63);
+            // reisch.insert(29);
+            // reisch.insert(95);
+            // reisch.insert(14);
+            // reisch.insert(50);
+            // reisch.insert(86);
+            // reisch.insert(12);
+            // reisch.insert(30);
             // reisch.insert(39);
 
-            binary.insert(72);
-            binary.insert(19);
-            binary.insert(63);
-            binary.insert(29);
-            binary.insert(95);
-            binary.insert(14);
-            binary.insert(50);
-            binary.insert(86);
-            binary.insert(12);
-            binary.insert(30);
+            // binary.insert(72);
+            // binary.insert(19);
+            // binary.insert(63);
+            // binary.insert(29);
+            // binary.insert(95);
+            // binary.insert(14);
+            // binary.insert(50);
+            // binary.insert(86);
+            // binary.insert(12);
+            // binary.insert(30);
             // binary.insert(39);
+
+            //--------------------
+
+            // reisch.insert(27);
+            // reisch.insert(18);
+            // reisch.insert(29);
+            // reisch.insert(28);
+            // reisch.insert(39);
+            // reisch.insert(13);
+            // reisch.insert(16);
+            // reisch.insert(41);
+            // reisch.insert(17);
+            // reisch.insert(19);
+
+            // binary.insert(27);
+            // binary.insert(18);
+            // binary.insert(29);
+            // binary.insert(28);
+            // binary.insert(39);
+            // binary.insert(13);
+            // binary.insert(16);
+            // binary.insert(41);
+            // binary.insert(17);
+            // binary.insert(19);
 
             while (true)
             {
