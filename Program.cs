@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Hashing
 {
+    //This node is for reisch hash
     class Node
     {
         public int data;
@@ -24,7 +25,7 @@ namespace Hashing
     class REISCH
     {
         private int rowCount { get; set; }
-        private List<int> blankIndexes { get; set; }
+        public List<int> blankIndexes { get; set; }
         public Node[] table { get; set; }
 
         public REISCH(int rowCount)
@@ -37,6 +38,7 @@ namespace Hashing
         public void insert(int data)
         {
             int index = hash(data);
+            //If the home index is blank,then inserts the data to the home index
             if (table[index] == null)
             {
                 table[index] = new Node(data);
@@ -62,7 +64,7 @@ namespace Hashing
                         table[blankIndex] = new Node(data);
                         table[blankIndex].link = link;
                         blankIndexes.Remove(blankIndex);
-                    }
+                    } //Iterates through hash function until an empty index is found.
                 }
                 else
                 {
@@ -74,19 +76,22 @@ namespace Hashing
         public int[] search(int data){
             int probe = 1;
             int index = hash(data);
+
+            //If the home index is blank, it means the data is not in the table
             if(table[index] == null)
             {
                 return new int[] { -1, 0 };
             }
             else
             {
+                //If it is the same data as the data found in the home index, it means the index is home index and probe number is 1.
                 if(table[index].data == data)
                 {
                     return new int[] { index, probe };
                 }
                 else
                 {
-                    Node main = table[index];
+                    Node main = table[index]; //start point
 
                     int link = table[index].link;
                     while(link != -1)
@@ -108,12 +113,12 @@ namespace Hashing
                         {
                             link = table[link].link;
                         }
-                    }
-                    return new int[] { -1, 0 };
+                    } //Iterates through hashes until data is found.
+
+                    return new int[] { -1, 0 }; //If the data is not found, it returns the index is -1 and probe number is 0.
                 }
             }
-        } // search'ten sonra döndürelen değer bulunduğu index sayısıdır.
-        //Ayrıca probe değeri için reisch.probe yapılmalıdır.
+        } //The returned value is the index and probe number.
 
         public void print()
         {
@@ -138,6 +143,7 @@ namespace Hashing
             return data % rowCount; 
         }
     }
+    //This node is for binary hash
     class TNode
     {
          public int data { get; set; }
@@ -158,7 +164,7 @@ namespace Hashing
     }
     class BINARY{
         private int rowCount { get; set; }
-        private List<int> blankIndexes { get; set; }
+        public List<int> blankIndexes { get; set; }
         public TNode[] table { get; set; }
 
         public BINARY(int rowCount)
@@ -180,6 +186,7 @@ namespace Hashing
             TNode node = new TNode(data, -1);
             int foundedIndex = -1;
 
+            //If the home index is blank,then inserts the data to the home index
             if (table[index] == null)
             {
                 table[index] = new TNode(data, index);;
@@ -256,19 +263,18 @@ namespace Hashing
                             blankIndexes.Remove(foundedIndex);
                         }
 
-                    } // isRight true ya da false olmasına göre tempTable'ın son elemanında işlem yapılacak.
-                    //Son elemanın işleminden yukarıya doğru ana node'a ulaşana kadar işlem tekrar edilecek.
+                    } //Depending on whether isRight is true or false, the last element of the tempTable will be processed.
                     
                     while(path.index != -1){
-                        if(path.isRight){
+                        if(path.isRight){ //move
                             TNode temp = new TNode(path.parent.data, foundedIndex);
                             table[foundedIndex] = temp;
                             foundedIndex = path.parent.index;
                             path = path.parent;
-                        }else{ //remove
+                        }else{ //continue
                             path = path.parent;
                         }
-                    }
+                    } //The process will be repeated until it reaches the master node from the last element's process upwards.
                 }
                 else
                 {
@@ -281,20 +287,22 @@ namespace Hashing
             int probe = 1;
             int index = hash(data);
             int index2 = quotient(data);
+
+            //If the home index is blank, it means the data is not in the table
             if(table[index] == null)
             {
                 return new int[] { -1, 0 };
             }
             else
             {
-                
+                //If it is the same data as the data found in the home index, it means the index is home index and probe number is 1.
                 if(table[index].data == data)
                 {
                     return new int[] { index, probe };
                 }
                 else
                 {
-                    TNode main = table[index];
+                    TNode main = table[index]; //start point
 
                     while(table[index].data != -1)
                     {
@@ -312,11 +320,12 @@ namespace Hashing
                         {
                             return new int[] { -1, 0 };
                         }
-                    }
-                    return new int[] { -1, 0 };
+                    } //Iterates through hashes until data is found.
+
+                    return new int[] { -1, 0 }; //If the data is not found, it returns the index is -1 and probe number is 0.
                 }
             }
-        } // search'ten sonra döndürelen değer bulunduğu index ve probe sayısıdır.
+        } //The returned value is the index and probe number.
 
         public void print()
         {
@@ -351,7 +360,14 @@ namespace Hashing
         {
             Console.Write("Please, enter the row count of each table: ");
             rowCount = Convert.ToInt32(Console.ReadLine());
-            Console.Clear();
+            if(rowCount > 1000)
+            {
+                Console.WriteLine("Row count must be less than 1000 cause that packing factor should be %90 for at most 900 random keys.");
+                Console.ReadKey();
+                return;
+            }else{
+                Console.Clear();
+            }
 
             REISCH reisch = new REISCH(rowCount);
             BINARY binary = new BINARY(rowCount);
@@ -427,6 +443,9 @@ namespace Hashing
                         binary.insert(number);
                         watch2.Stop();
                         var elapsedMs2 = watch2.Elapsed;
+
+                        decimal packingFactor = Math.Round((Convert.ToDecimal(rowCount - reisch.blankIndexes.Count) / Convert.ToDecimal(rowCount))*100);
+                        Console.WriteLine("\nPacking factor: {0}%\n", packingFactor);
 
                         Console.WriteLine("\nReisch insert time: {0} ms", elapsedMs);
                         Console.WriteLine("Binary insert time: {0} ms", elapsedMs2);
